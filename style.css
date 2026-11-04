@@ -1,0 +1,1218 @@
+
+
+/* =========================
+   1. BASIC SETTINGS
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    color: white;
+    background: linear-gradient(
+        135deg,
+        #061b55,
+        #123c91,
+        #3921a0,
+        #0876b9
+    );
+    padding: 15px;
+}
+
+/* =========================
+   2. APP CONTAINER
+========================= */
+
+.app-container {
+    width: 100%;
+    max-width: 480px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 28px;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+/* =========================
+   3. HEADER
+========================= */
+
+.app-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.logo {
+    font-size: 38px;
+}
+
+.header-text {
+    flex: 1;
+}
+
+.header-text h1 {
+    font-size: 23px;
+    margin-bottom: 5px;
+}
+
+.header-text p {
+    font-size: 12px;
+    color: #c4d8ff;
+}
+
+.header-actions {
+    display: flex;
+    gap: 7px;
+}
+
+.header-actions button {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    color: white;
+    font-size: 17px;
+    cursor: pointer;
+      position: relative;
+}
+
+/* =========================
+   4. BALANCE CARD
+========================= */
+
+.balance-card {
+    padding: 25px 20px;
+    margin-bottom: 18px;
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 22px;
+    background: linear-gradient(
+        120deg,
+        rgba(55,140,255,0.4),
+        rgba(90,60,220,0.4)
+    );
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.balance-card h3 {
+    font-size: 17px;
+    margin-bottom: 12px;
+}
+
+.balance-card h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.balance-card span {
+    font-size: 12px;
+    color: #c9dcff;
+}
+
+/* =========================
+   5. SUMMARY CARDS
+========================= */
+
+.summary-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.summary-card {
+    border: 1px solid rgba(255,255,255,0.25);
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+
+.summary-card h2 {
+    word-break: break-word;
+}
+
+.income-card h2 {
+    color: #38f5a0;
+}
+
+.expense-card h2 {
+    color: #ff7188;
+}
+
+/* =========================
+   6. ACTION BUTTONS
+========================= */
+
+.action-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.action-buttons button {
+    border: 1px solid rgba(255,255,255,0.3);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#addIncomeBtn {
+    background: linear-gradient(135deg, #00c987, #008d6b);
+}
+
+#addExpenseBtn,
+#clearDataBtn {
+    background: linear-gradient(135deg, #ff547b, #c20d51);
+}
+
+.action-buttons button:active {
+    transform: scale(0.96);
+}
+
+/* =========================
+   7. TRANSACTIONS CARD
+========================= */
+
+.transactions-card {
+    border: 1px solid rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    min-height: 180px;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.section-header button {
+    border: none;
+    background: transparent;
+    color: #c9dcff;
+    cursor: pointer;
+}
+
+.empty-message {
+    text-align: center;
+    padding: 30px 5px;
+    color: #c4d8ff;
+    font-size: 14px;
+}
+
+/* =========================
+   8. BOTTOM NAVIGATION
+========================= */
+
+.bottom-nav {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid rgba(255,255,255,0.25);
+    background: rgba(255,255,255,0.12);
+}
+
+.nav-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: none;
+    background: transparent;
+    color: #c4d8ff;
+    cursor: pointer;
+}
+.nav-btn.active {
+    color: white;
+}
+
+/* =========================
+   9. MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 380px) {
+
+    body {
+        padding: 8px;
+    }
+
+    .app-container {
+        padding: 14px;
+    }
+
+    .header-text h1 {
+        font-size: 19px;
+    }
+
+    .balance-card h2 {
+        font-size: 27px;
+    }
+}
+
+/* =================================
+   PREMIUM iOS STYLE SVG ICONS
+================================= */
+
+/* Common SVG settings */
+
+.app-container svg {
+    width: 24px;
+    height: 24px;
+    display: block;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Header logo */
+
+.logo.icon-circle {
+    width: 58px;
+    height: 58px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 19px;
+    color: white;
+    background: linear-gradient(
+        145deg,
+        #42caff,
+        #0878ed,
+        #3948e8
+    );
+    border: 1px solid rgba(255,255,255,0.55);
+    box-shadow:
+        inset 0 2px 5px rgba(255,255,255,0.5),
+        0 7px 18px rgba(0,120,255,0.4);
+}
+
+.logo svg {
+    width: 34px;
+    height: 34px;
+}
+
+/* Header buttons */
+
+.header-actions button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255,255,255,0.4);
+    background: linear-gradient(
+        145deg,
+        rgba(255,255,255,0.3),
+        rgba(255,255,255,0.08)
+    );
+    box-shadow:
+        inset 0 1px 3px rgba(255,255,255,0.35),
+        0 4px 12px rgba(0,0,0,0.15);
+}
+
+.header-actions button svg {
+    width: 21px;
+    height: 21px;
+}
+.header-actions button.has-dot::after {
+    content: "";
+    position: absolute;
+    top: 6px;
+    right: 7px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #ff3b5c;
+    border: 1.5px solid #123c91;
+}
+
+/* Income and expense cards */
+
+.summary-card {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+}
+
+.summary-icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: white;
+    border: 1px solid rgba(255,255,255,0.45);
+    box-shadow:
+        inset 0 2px 5px rgba(255,255,255,0.35),
+        0 5px 14px rgba(0,0,0,0.18);
+}
+
+.summary-icon svg {
+    stroke-width: 2.7;
+}
+
+.income-card .summary-icon {
+    background: linear-gradient(145deg,#36f7a0,#00a967);
+}
+
+.expense-card .summary-icon {
+    background: linear-gradient(145deg,#ff769d,#e60058);
+}
+
+/* Add buttons */
+
+.action-buttons button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:
+        inset 0 2px 5px rgba(255,255,255,0.3),
+        0 6px 15px rgba(0,0,0,0.15);
+}
+
+.action-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.95);
+    color: #079e72;
+}
+
+#addExpenseBtn .action-icon {
+    color: #df185e;
+}
+
+.action-icon svg {
+    stroke-width: 2.8;
+}
+
+/* Transactions heading */
+
+.section-header h3 {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.heading-icon {
+    color: white;
+}
+
+/* Bottom navigation icons */
+
+.nav-btn {
+    justify-content: center;
+    transition: 0.25s ease;
+}
+
+.nav-btn svg {
+   stroke-width: 2;
+}
+
+.nav-btn.active {
+    background: linear-gradient(
+        145deg,
+        rgba(42,164,255,0.55),
+        rgba(43,76,230,0.4)
+    );
+    box-shadow:
+        inset 0 1px 4px rgba(255,255,255,0.3),
+        0 3px 12px rgba(0,100,255,0.2);
+}
+
+.nav-btn:active {
+    transform: scale(0.92);
+}
+
+/* =====================================
+   TRANSACTION ICONS - iOS GLASS STYLE
+===================================== */
+
+.transaction-row {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+.transaction-row:last-child {
+    border-bottom: none;
+}
+
+.transaction-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border: 1px solid rgba(255,255,255,0.4);
+    box-shadow:
+        inset 0 2px 5px rgba(255,255,255,0.4),
+        0 5px 12px rgba(0,0,0,0.18);
+}
+
+.transaction-icon svg {
+    stroke-width: 2;
+}
+
+/* Shopping - Blue */
+
+.transaction-icon.shopping {
+    background: linear-gradient(
+        145deg,
+        #58c9ff,
+        #1767ed
+    );
+    box-shadow: 0 5px 15px rgba(25,120,255,0.3);
+}
+
+/* Salary - Green */
+
+.transaction-icon.salary {
+    background: linear-gradient(
+        145deg,
+        #54efb0,
+        #00a66d
+    );
+    box-shadow: 0 5px 15px rgba(0,200,130,0.3);
+}
+
+/* Food - Orange */
+
+.transaction-icon.food {
+    background: linear-gradient(
+        145deg,
+        #ffbd67,
+        #f07825
+    );
+    box-shadow: 0 5px 15px rgba(255,145,40,0.3);
+}
+
+/* Other - Purple */
+
+.transaction-icon.other {
+    background: linear-gradient(
+        145deg,
+        #c18aff,
+        #7542db
+    );
+    box-shadow: 0 5px 15px rgba(140,80,255,0.3);
+}
+
+/* Transaction Details */
+
+.transaction-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.transaction-details h4 {
+    color: white;
+}
+
+.transaction-details p {
+    color: #c5d8ff;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Transaction Amount */
+
+.transaction-row strong {
+    text-align: right;
+    overflow-wrap: anywhere;
+}
+
+.positive-amount {
+    color: #42efa9;
+}
+
+.negative-amount {
+    color: #ff829a;
+}
+
+/* =====================================
+   PREMIUM GLASS TRANSACTION FORM
+===================================== */
+
+.transaction-dialog {
+    width: calc(100% - 30px);
+    max-width: 390px;
+    margin: auto;
+    padding: 28px 22px;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 28px;
+    color: white;
+
+    background: linear-gradient(
+        145deg,
+        rgba(20,55,120,0.96),
+        rgba(30,35,105,0.96),
+        rgba(35,25,100,0.96)
+    );
+
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.4),
+        inset 0 1px 2px rgba(255,255,255,0.25);
+}
+
+/* Dialog Background */
+
+.transaction-dialog::backdrop {
+    background: rgba(3,10,35,0.72);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+}
+
+/* Form Heading */
+
+#transactionForm h2 {
+    font-size: 24px;
+    margin-bottom: 25px;
+    text-align: center;
+    color: white;
+    letter-spacing: 0.3px;
+}
+
+/* Labels */
+
+#transactionForm label {
+    display: block;
+    margin: 17px 0 9px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #d5e5ff;
+}
+
+/* Input and Select */
+
+#transactionForm input,
+#transactionForm select {
+    width: 100%;
+    height: 52px;
+    padding: 0 15px;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 15px;
+    outline: none;
+
+    background: rgba(255,255,255,0.11);
+    color: white;
+
+    font-size: 14px;
+
+    box-shadow:
+        inset 0 2px 5px rgba(0,0,0,0.12);
+
+    transition: 0.25s ease;
+}
+
+/* Placeholder */
+
+#transactionForm input::placeholder {
+    color: #b7c9eb;
+}
+
+/* Focus Effect */
+
+#transactionForm input:focus,
+#transactionForm select:focus {
+    border-color: #55c8ff;
+
+    background: rgba(255,255,255,0.17);
+
+    box-shadow:
+        0 0 0 3px rgba(65,170,255,0.15),
+        inset 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Dropdown Options */
+
+#transactionForm select option {
+    background: #172d65;
+    color: white;
+}
+
+/* Remove Number Arrows */
+
+#transactionForm input[type="number"] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+#transactionForm input[type="number"]::-webkit-inner-spin-button,
+#transactionForm input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Dialog Buttons */
+
+.dialog-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.dialog-buttons button {
+    min-height: 49px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,0.25);
+
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+/* Cancel */
+
+#cancelBtn,
+#restoreBtn,
+#closeSettingsBtn {
+    background: rgba(255,255,255,0.12);
+}
+
+/* Save */
+
+#saveBtn, #backupBtn, #closeNotifBtn{
+    background: linear-gradient(
+        135deg,
+        #28c9ff,
+        #3869ef,
+        #6546db
+    );
+
+    box-shadow:
+        0 5px 15px rgba(40,120,255,0.3),
+        inset 0 1px 3px rgba(255,255,255,0.35);
+}
+
+/* Button Press */
+
+.dialog-buttons button:active {
+    transform: scale(0.96);
+}
+
+/* Mobile */
+
+@media (max-width: 380px) {
+
+    .transaction-dialog {
+        padding: 23px 17px;
+        border-radius: 23px;
+    }
+
+    #transactionForm h2 {
+        font-size: 21px;
+    }
+
+}
+
+
+
+/* =====================================
+   HISTORY PAGE - GLASSMORPHISM
+===================================== */
+
+.history-page {
+    width: 100%;
+    padding: 20px 15px;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 24px;
+
+    background: linear-gradient(
+        145deg,
+        rgba(255,255,255,0.13),
+        rgba(255,255,255,0.06)
+    );
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* Heading */
+
+.history-heading {
+    margin-bottom: 22px;
+}
+
+.history-heading h2 {
+    font-size: 22px;
+    margin-bottom: 7px;
+    color: white;
+}
+
+.history-heading p {
+    font-size: 12px;
+    color: #c4d8ff;
+}
+
+/* Filter Buttons */
+
+.history-filters {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    padding: 6px;
+    margin-bottom: 20px;
+
+    border-radius: 16px;
+    background: rgba(0,0,0,0.15);
+}
+
+.history-filter {
+    padding: 11px 5px;
+    border: 1px solid transparent;
+    border-radius: 12px;
+
+    color: #cbdcff;
+    background: transparent;
+
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.history-filter.active {
+    color: white;
+
+    background: linear-gradient(
+        135deg,
+        #32baff,
+        #4358e9
+    );
+
+    border-color: rgba(255,255,255,0.35);
+
+    box-shadow: 0 4px 12px rgba(40,120,255,0.3);
+}
+
+.history-search {
+    width: 100%;
+    height: 30px;
+    padding: 0 15px;
+    margin-bottom: 18px;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 14px;
+    outline: none;
+    background: rgba(255,255,255,0.11);
+    color: white;
+    font-size: 13px;
+}
+
+.history-search::placeholder {
+    color: #b7c9eb;
+}
+
+.history-search:focus {
+    border-color: #55c8ff;
+    background: rgba(255,255,255,0.17);
+}
+
+.history-dates {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.history-dates label {
+    font-size: 11px;
+    color: #c4d8ff;
+}
+
+.history-dates input {
+    width: 100%;
+    height: 25px;
+    margin-top: 6px;
+    padding: 0 10px;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 12px;
+    outline: none;
+    background: rgba(255,255,255,0.11);
+    color: white;
+    font-size: 12px;
+    color-scheme: dark;
+}
+
+.history-dates input:focus {
+    border-color: #55c8ff;
+    background: rgba(255,255,255,0.17);
+}
+
+/* History Rows */
+
+.history-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+
+    padding: 16px 10px;
+    margin-bottom: 9px;
+
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 15px;
+
+    background: rgba(255,255,255,0.09);
+}
+
+.history-row h4 {
+    font-size: 14px;
+    color: white;
+    margin-bottom: 6px;
+    overflow-wrap: anywhere;
+}
+
+.history-row p {
+    font-size: 11px;
+    color: #c4d8ff;
+    overflow-wrap: anywhere;
+}
+
+.history-row strong {
+    font-size: 12px;
+    text-align: right;
+    overflow-wrap: anywhere;
+  margin-left: auto;
+}
+
+/* Amount Colors */
+
+.history-row .positive-amount {
+    color: #45f0aa;
+}
+
+.history-row .negative-amount {
+    color: #ff819b;
+}
+
+.history-row .edit-btn,
+.history-row .delete-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 25px;
+    height: 25px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.12);
+    color: #c4d8ff;
+}
+
+.history-row .delete-btn {
+    color: #ff819b;
+}
+
+.history-row .edit-btn svg,
+.history-row .delete-btn svg {
+    width: 15px;
+    height: 15px;
+}
+/* Mobile Adjustment */
+
+@media (max-width: 380px) {
+
+    .history-page {
+        padding: 16px 11px;
+    }
+
+    .history-heading h2 {
+        font-size: 19px;
+    }
+
+    .history-row {
+        padding: 13px 8px;
+        gap: 7px;
+    }
+
+    .history-row strong {
+        font-size: 11px;
+    }
+
+}
+
+
+
+/* =================================
+   FIXED BOTTOM NAVIGATION POSITION
+================================= */
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 30px);
+}
+
+/* Footer always stays at bottom */
+
+.bottom-nav {
+    margin-top: auto;
+    position: sticky;
+    bottom: 10px;
+    z-index: 100;
+    flex-shrink: 0;
+}
+
+/* History page spacing */
+
+.history-page {
+    margin-bottom: 20px;
+}
+
+/* =================================
+   COMPACT BOTTOM NAVIGATION
+================================= */
+
+.bottom-nav {
+    padding: 5px 5px;
+    gap: 3px;
+    border-radius: 17px;
+    min-height: 68px;
+}
+
+.nav-btn {
+    padding: 6px 2px;
+    gap: 3px;
+    border-radius: 12px;
+    font-size: 16px;
+}
+
+.nav-btn svg {
+    width: 21px;
+    height: 21px;
+}
+
+.nav-btn span {
+    font-size: 10px;
+    line-height: 13px;
+}
+
+@media (max-width: 380px) {
+    .bottom-nav {
+        min-height: 50px;
+        padding: 4px;
+    }
+
+    .nav-btn svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+
+
+
+/* =================================
+   COMPACT DASHBOARD CARDS
+================================= */
+
+/* Total Income & Total Expenses */
+
+.summary-card {
+    min-height: 85px;
+    padding: 11px 10px;
+    gap: 9px;
+    border-radius: 17px;
+}
+
+.summary-icon {
+    width: 35px;
+    height: 35px;
+    min-width: 35px;
+}
+
+.summary-icon svg {
+    width: 19px;
+    height: 19px;
+}
+
+.summary-card h3 {
+    font-size: 12px;
+    margin-bottom: 7px;
+}
+
+.summary-card h2 {
+    font-size: 16px;
+}
+
+/* Add Income & Add Expense */
+
+.action-buttons {
+    gap: 10px;
+    margin-bottom: 17px;
+}
+
+.action-buttons button {
+    min-height: 53px;
+    padding: 9px 6px;
+    gap: 7px;
+    border-radius: 15px;
+    font-size: 13px;
+}
+
+.action-icon {
+    width: 27px;
+    height: 27px;
+}
+
+.action-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Small Mobile Screens */
+
+@media (max-width: 380px) {
+
+    .summary-card {
+        min-height: 76px;
+        padding: 9px 7px;
+        gap: 7px;
+    }
+
+    .summary-icon {
+        width: 30px;
+        height: 30px;
+        min-width: 30px;
+    }
+
+    .summary-card h3 {
+        font-size: 11px;
+    }
+
+    .summary-card h2 {
+        font-size: 14px;
+    }
+
+    .action-buttons button {
+        min-height: 48px;
+        font-size: 12px;
+    }
+}
+
+
+
+/* =====================================
+   COMPACT RECENT TRANSACTIONS
+===================================== */
+
+/* Transactions Box */
+
+.transactions-card {
+    padding: 13px 12px;
+    border-radius: 19px;
+}
+
+/* Heading */
+
+.transactions-card .section-header {
+    margin-bottom: 10px;
+}
+
+.transactions-card .section-header h3 {
+    font-size: 14px;
+    gap: 7px;
+}
+
+.transactions-card .heading-icon {
+    width: 19px !important;
+    height: 19px !important;
+}
+
+.transactions-card .section-header button {
+    font-size: 11px;
+}
+
+/* Transaction Rows */
+
+.transactions-card .transaction-row {
+    padding: 9px 0;
+    gap: 9px;
+}
+
+/* Smaller Icons */
+
+.transactions-card .transaction-icon {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    border-radius: 12px;
+}
+
+.transactions-card .transaction-icon svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Smaller Text */
+
+.transactions-card .transaction-details h4 {
+    font-size: 12px;
+    margin-bottom: 4px;
+}
+
+.transactions-card .transaction-details p {
+    font-size: 10px;
+}
+
+/* Amount */
+
+.transactions-card .transaction-row strong {
+    font-size: 11px;
+}
+
+/* Footer Gap */
+
+.transactions-card {
+    margin-bottom: 0px;
+}
+
+/* Small Screens */
+
+@media (max-width: 380px) {
+
+    .transactions-card {
+        padding: 11px 10px;
+    }
+
+    .transactions-card .transaction-icon {
+        width: 29px;
+        height: 29px;
+        min-width: 29px;
+    }
+
+    .transactions-card .transaction-details h4 {
+        font-size: 11px;
+    }
+
+    .transactions-card .transaction-details p {
+        font-size: 9px;
+    }
+
+    .transactions-card .transaction-row strong {
+        font-size: 10px;
+    }
+}
